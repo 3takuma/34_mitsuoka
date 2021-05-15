@@ -1,0 +1,39 @@
+body{
+  text-align: center;
+  background-color: rgb(225, 253, 225);
+}
+
+h1{
+  color: red;
+  font-size: 50px;
+}
+
+#btn1{
+  font-size: 35px;
+  padding: 18px 32px;
+}
+#btn2{
+  font-size: 35px;
+  padding: 18px 32px;
+  margin: 0 23px;
+}
+#btn3{
+  font-size: 35px;
+  padding: 18px 32px;
+}
+
+#you{
+  font-size: 40px;
+  margin: -22px 0 -8px}
+#enemy{
+  font-size: 40px;
+  margin: -22px 0 -10px;}
+#result{
+  font-size: 55px;
+  margin: -25px;}
+
+h3{font-size: 25px;}
+.kekka{
+  font-size: 32px;
+  color: blue;
+}
