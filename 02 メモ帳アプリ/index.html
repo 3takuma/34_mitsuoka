@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>myMemoPad</title>
+<script src="js/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="css/sample.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>幸せを育てる広場</h1>
+        <h2>今日もお疲れさま！</h2>
+    </header>
+
+    <main style="display: none;">
+        <div class="clover1">
+            <img src="img/clover.png" alt="クローバー" class="clover2">
+        </div>
+        <!-- <input type="text" id="title"> -->
+        <!-- <input type="file" id="file"> -->
+        <p class="p1">Ⅰ.やってみた❗😆</p>
+        <textarea id="fac1"></textarea>
+        <p class="p2">Ⅱ.ありがとう❗☺️</p>
+        <textarea id="fac2"></textarea>
+        <p class="p3">Ⅲ.なんとかなるさ❗😁</p>
+        <textarea id="fac3"></textarea>
+        <p class="p4">Ⅳ.私らしかった❗😙</p>
+        <textarea id="fac4"></textarea>
+        <input type="date" id="title">
+        <ul>
+            <li>
+                <img src="img/clover4.svg" alt="保存ボタン" id="save" class="yotsuba">
+            </li>
+            <li>
+                <img src="img/tentoumushi.png" alt="てんとう虫" id="clear" class="mushi">
+            </li>
+        </ul>
+    </main>
+
+    <!-- 保存データ挿入場所 -->
+    <table id="list"></table>
+
+    <footer>©3takuma^^</footer>
+
+
+
+    <script>
+
+        // ---------- 1.保存のクリックイベント ----------
+        $("#save").on('click', function () {
+            const key = $("#title").val(); //valは、入力文字を取得する。
+            const value1 = $("#fac1").val();
+            const value2 = $("#fac2").val();
+            const value3 = $("#fac3").val();
+            const value4 = $("#fac4").val();
+            // const value=[
+                // { factor1:value1, factor2:value2, factor3:value3, factor4:value4},
+            // ];
+            // var json_text=JSON.stringify(value); ←JSONに挑戦するも、敗れる。
+                //入力確認用
+                console.log(key);
+                console.log(value1);
+                // console.log(value);
+            //localStorageに保存
+            localStorage.setItem(key, value1, value2, value3, value4); //value2-4は送られていないはず。
+            //アラート設定
+            if(key ===""){
+                alert("日付を入力してね💡😃");}
+            // else if(value ===""){
+            //     alert("内容を入力してください。")}
+            else {
+                alert("新しいクローバーができたよ🎶🍀🥰")}
+            //保存データをブラウザに表示（テンプレートリテラル）
+            const data = `
+            <tr>
+                <th>${key}</th>
+                <td>${value1}</td>
+                <td>${value2}</td>
+                <td>${value3}</td>
+                <td>${value4}</td>
+            </tr>
+            `
+            //変数("data")を、html("list")に埋め込む。
+            $("#list").append(data);
+            //（保存したら）入力欄を空にする。
+            $("#title").val("");
+            $("#fac1").val("");
+            $("#fac2").val("");
+            $("#fac3").val("");
+            $("#fac4").val("");
+        });
+
+        // ---------- 2.消去のクリックイベント ----------
+        $("#clear").on("click", function () {
+            //ローカルストレージのデータを全消去
+            localStorage.clear(title);
+            // localStorage.removeItem(title);
+            // localStorage.removeItem(title); ←上手く機能せず。
+            //アラート設定
+            alert("データを消去したよ。");
+            //ブラウザに表示中の「保存内容」を削除
+            $("#list").empty();
+        });
+
+        // ---------- 3.ロード時、保存データを取得し表示 ----------
+        for (let i = 0; i < localStorage.length; i++) {
+            // LocalStorage.key(i); ローカルストレージの引き出しの何番目ですか？というイメージ。
+            //   ※登録イメージ
+            //   [key]     [value]
+            //   test1     11111
+            //   test2     22222
+            // keyの０番目は[test]というデータの塊のことなので、そのkeyをもとにlocalStorage.getItem()を使って取得している感じ。
+            const key = localStorage.key(i);
+            const value1 = localStorage.getItem(key);
+            const value2 = localStorage.getItem(key);
+            const value3 = localStorage.getItem(key);
+            const value4 = localStorage.getItem(key);
+            //保存データをブラウザに表示（テンプレートリテラル）
+            const data = `
+            <tr>
+                <th>${key}</th>
+                <td>${value1}</td>
+                <td>${value2}</td>
+                <td>${value3}</td>
+                <td>${value4}</td>
+            </tr>
+            `
+            //変数("data")を、html("list")に埋め込む。
+            $("#list").append(data);
+        }
+        /* if(localStorage.getItem(title)){
+            var value = localStorage.getItem(title);
+            $("#title").val(value);
+        } */ //↑上手く機能せず。メモ欄に文字を残しておく指示。（動画２−１０より）
+
+        // ---------- 4.その他 ----------
+        // $("main").slideDown(600);
+        $("main").hide().fadeIn(1800);
+    </script>
+
+</body>
+</html>

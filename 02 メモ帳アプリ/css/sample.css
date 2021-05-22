@@ -1,0 +1,192 @@
+body {
+  margin: 0;
+  padding: 0;
+  /* text-align: left; */
+  font-size: 32px;
+  width: 100%;
+  background-image: url("../img/haikei.jpeg");
+  background-size: cover;
+  font-family: "Hannotate SC";
+  line-height:55px;
+  /* overflow: hidden; */
+}
+header {
+  /* background-color: #fff; */
+  /* border-bottom: 1px solid #ccc; */
+  text-align: center;
+  margin: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+h1 {
+  font-size: 190%;
+  text-align: right;
+  color: orange;
+  margin: auto 0 auto 40px;
+}
+main {
+  width: 100%;
+  display: block;
+  /* border-bottom: 1px solid #ccc; */
+  position: relative;
+}
+footer {
+  /* background-color: #fff; */
+  /* border-bottom: 1px solid #ccc; */
+  text-align: center;
+}
+p {
+  /* font-size: 200%;
+  text-align: center;
+  border-bottom: 1px solid #fff;
+  height: 200px; */
+  font-size: 40px;
+}
+/* ul { */
+  /* padding: 0; */
+  /* border-top: 1px solid #000000; */
+  /* display: table; 定義 */
+  /* table-layout: fixed; */
+  /* width: 96%; */
+  /* font-size: 80%; */
+  /* margin: 0 3%; */
+  /* text-align: center; */
+/* } */
+li {
+  list-style-type: none;
+  /* border: 1px solid #666; */
+  /* background-color: #fff; */
+  /* display: table-cell; 定義 */
+  /* cursor: pointer; */
+  /* color: #0d7dfd; */
+}
+/* li:hover { */
+  /* background: #0d7dfd; */
+  /* color: #fff; */
+/* } */
+/* #title { */
+  /* margin: 0 3%; */
+  /* width: 500px; */
+  /* font-size: 80%; */
+  /* background-color: #e1efff; */
+  /* box-shadow: 2px 2px 5px 1px #555; */
+/* } */
+textarea {
+  /* margin: 10px 3%; */
+  width: 400px;
+  height: 40px;
+  font-size: 80%;
+  /* background-color: #e1efff; */
+  box-shadow: 2px 2px 5px 1px #555;
+}
+
+table {
+  margin: 20px 2.6%;
+  /* border: 1px solid #8dc3f5; */
+  width: 95%;
+}
+th {
+  width: 15%;
+  font-size: 24px;
+  background-color: #32c532;
+  /* border-bottom: 1px solid #8dc3f5; */
+}
+td {
+  font-size: 18px;
+  background-color: rgba(104, 241, 92, 0.712);
+  /* border-bottom: 1px solid #8dc3f5; */
+}
+/* input { */
+  /* margin: 10px 3%; */
+  /* width: 230px; */
+  /* height: 40px; */
+  /* font-size: 80%; */
+/* } */
+
+/* .clover1{
+  text-align: center;
+} */
+.clover2{
+  margin: -75px 0 0 180px;
+  width: 85%;
+  /* transform: rotate( 10deg ); */
+}
+h2{
+  margin: 20px 50px 0 0 ;
+  color: rgb(248, 132, 186);
+}
+
+#title{
+  position: absolute;
+  top: 315px;
+  right: 160px;
+  background-color: rgb(255, 243, 212);
+  font-family: "Hannotate SC";
+  width: 230px;
+  height: 40px;
+  font-size: 80%;
+  border: 2px solid #bfbfbf;;
+}
+.p1{
+  position: absolute;
+  top: 2px;
+  left: 243px;
+}
+#fac1{
+  position: absolute;
+  top: 103px;
+  left: 211px;
+  background-color: rgb(255, 255, 195);
+}
+.p2{
+  position: absolute;
+  top: 146px;
+  left: 574px;
+}
+#fac2{
+  position: absolute;
+  top: 249px;
+  left: 541px;
+  background-color: rgb(255, 226, 231);
+}
+.p3{
+  position: absolute;
+  top: 363px;
+  left: 431px;
+}
+#fac3{
+  position: absolute;
+  top: 464px;
+  left: 435px;
+  background-color: rgb(212, 255, 209);
+}
+.p4{
+  position: absolute;
+  top: 220px;
+  left: 61px;
+}
+#fac4{
+  position: absolute;
+  top: 321px;
+  left: 46px;
+  background-color: rgb(218, 218, 255);
+}
+
+.yotsuba{
+  width: 195px;
+  position: absolute;
+  top: 398px;
+  right: 178px;
+}
+.yotsuba:hover {
+  opacity: 0.7 ;
+}
+.mushi{
+width: 125px;
+  position: absolute;
+  top: 700px;
+  right: 71px;
+}
+.mushi:hover {
+  opacity: 0.7 ;
+}
