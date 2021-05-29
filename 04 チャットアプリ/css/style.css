@@ -1,0 +1,20 @@
+body{
+  text-align: center;
+}
+
+.type{
+  display: flex;
+}
+
+.username{
+  margin: auto auto auto 25%;
+}
+
+#username{
+  width: 300px;
+  height: 40px;
+}
+
+.text{
+  margin: auto 20% auto auto;
+}
