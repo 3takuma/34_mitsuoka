@@ -1,0 +1,70 @@
+body{
+  text-align: center;
+  background-color: rgb(207, 207, 207);
+  font-family: 'Reggae One', cursive;
+}
+
+.big{
+font-size: 50px;
+}
+
+.output{
+  border: 10px double rgba(0, 0, 0, 0.575);
+  width: 80%;
+  margin: auto;
+  height: 450px;
+  /* text-align: left; */
+  /* font-size: 30px; */
+  background-color: rgba(252, 255, 47, 0.198);
+  /* overflow: auto; */
+  overflow: hidden;
+}
+
+#output{
+  margin: auto 35px;
+}
+
+.type{
+  display: flex;
+  justify-content: center;
+  padding: 35px;
+}
+
+/* .username{ */
+  /* margin: auto auto auto 25%; */
+/* } */
+
+#username{
+  width: 250px;
+  height: 55px;
+  font-size: 30px;
+  text-align: center;
+  color: blue;
+}
+
+/* .text{ */
+  /* margin: auto 20% auto auto; */
+/* } */
+
+#text{
+  width: 500px;
+  height: 55px;
+  font-size: 30px;
+  text-align: center;
+  color: red;
+}
+
+p{
+  margin: auto;
+}
+
+.output-name{
+  color: blue;
+  font-size: 50px;
+}
+
+.output-text{
+  color: red;
+  font-size: 100px;
+  font-weight: bold;
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>チャットアプリ</title>
+  <script src="js/jquery-2.1.3.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Reggae+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- コンテンツ表示画面 -->
+  <h1><span class="big">叫</span>んでいってね (^❍^)</h1>
+
+  <!-- 保存されたデータが表示される箇所 -->
+  <div class="output">
+    <div id="output"></div>
+  </div>
+
+  <!-- 入力する部分 -->
+  <div class="type">
+    <div class="username">
+      <!-- <h2>きでん</h2> -->
+      <input type="text" id="username" placeholder="おぬし">
+    </div>
+
+    <div class="text">
+      <!-- <h2>さけび</h2> -->
+      <!-- <textarea id="text" cols="50" rows="5"></textarea> -->
+      <!-- <textarea id="text" placeholder="おきもちを打たれよ"></textarea> -->
+      <input type="text" id="text" placeholder="おきもちを打たれよ"></input>
+    </div>
+  </div>
+
+  <!-- 送信ボタン -->
+  <!-- <div> -->
+    <!-- <button id="send">送信</button> -->
+  <!-- </div> -->
+
+
+
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- JQuery -->
+
+  <!--** 以下Firebase **-->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <!-- 6.6.1に該当する箇所はfirebaseのバージョンですので更新されるたびに随時変わります🤗 -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase.js"></script> <!-- バージョンは違っていたら合わせる。 -->
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#config-web-app -->
+
+  <script>
+
+    // Your web app's Firebase configuration
+    // 提出用に削除
+    var firebaseConfig = {
+      apiKey: "",
+      authDomain: "",
+      databaseURL: "",
+      projectId: "",
+      storageBucket: "",
+      messagingSenderId: "",
+      appId: ""
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    //firebaseのデーターベース（保存させる場所）を使いますよ
+    const newPostRef = firebase.database().ref();
+
+    // ここから下にjqueryの処理を書いて練習します
+
+    // 送信ボタンをクリックされたら次の処理をする
+      $("#send").on("click", function () {
+        // データを登録で送る
+        newPostRef.push({
+          username: $("#username").val(), //名前
+          text: $("#text").val(), //テキストエリア
+        })
+        $("#text").val(""); //空にする
+        //$("#username").val(""); //空にする
+      });
+
+    // 受信処理
+    newPostRef.on("child_added", function (data) {
+      let v = data.val(); //ここに保存されたデータが全て入ってくる
+      // let k = data.key; //今回は使いません
+
+      console.log(v); //vの変数に入っているオブジェクトを全てみる
+
+      let str = `<p>
+                  <span class="output-name">${v.username}＜</span>　<span class="output-text">${v.text}！！！</span></p>`;
+
+      // ここでデータをhtmlに埋め込む
+      $("#output").prepend(str);
+    })
+
+    $("#text").on("keydown", function (e) {
+      console.log(e, "event");
+
+      // エンターキーを押したら送信処理を実行
+      if (e.keyCode === 13) {
+        newPostRef.push({
+          username: $("#username").val(), //名前
+          text: $("#text").val(), //テキストエリア
+        })
+        $("#text").val(""); //空にする
+        //$("#username").val(""); //空にする
+
+        // ---------- ここから追加分 ----------
+
+        // ランダムカラー生成（動かず）
+        // https://www.nxworld.net/jquery-random-snippets.html
+        // var arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
+        // var hexColor = '#';
+        // for (i = 0; i < 6; i++) {
+          // hexColor = hexColor + arr[Math.floor(Math.random() * 16)];
+        // }
+        // $("#text").css('color', hexColor);
+
+        // テキスト：フェードアウト
+        // $("#output").show(0).fadeOut(3000);
+
+        // テキスト：アニメーション（動かず）
+        // $("#output").anime.timeline({ loop: true })
+        //   .add({
+        //     targets: '.' + char_class,
+        //     scale: [4, 1],
+        //     opacity: [0, 1],
+        //     translateZ: 0,
+        //     easing: "easeInExpo",
+        //     duration: 500,
+        //     delay: function (el, i) {
+        //       return 60 * i;
+        //     }
+        //   }).add({
+        //     targets: '.' + box_class,
+        //     opacity: 0,
+        //     duration: 1000,
+        //     easing: "easeInExpo",
+        //     delay: 1000
+        //   });
+
+      }
+
+    })
+  </script>
+</body>
+
+</html>
